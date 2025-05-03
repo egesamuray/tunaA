@@ -1,0 +1,28 @@
+---
+title: "Efficient and scalable posterior surrogate for seismic inversion via wavelet score-based generative models"
+listing:
+  contents: posts
+  sort: "date desc"
+  type: default
+  categories: true
+  sort-ui: false
+  filter-ui: false
+page-layout: full
+title-block-banner: true
+---
+
+## Welcome
+
+This site presents our work on efficient and scalable posterior surrogate for seismic inversion via wavelet score-based generative models.
+
+![Overview of our approach](./figs/fig3_f.png)
+
+**Authors**: Ege Cirakman, Huseyin Tuna Erdinc, Felix J. Herrmann
+
+[View Full Paper](abstract.qmd)
+
+## Research Links
+
+- [SLIM Group](https://github.com/slimgroup/IMAGE2025.git)
+- [Georgia Institute of Technology](https://www.gatech.edu/)
+- [Istanbul Technical University](https://www.itu.edu.tr/)
