@@ -1,0 +1,199 @@
+/* Custom styles for figure display */
+.quarto-figure {
+    margin-bottom: 1.5em;
+    text-align: center;
+}
+
+.quarto-figure img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.quarto-figure-center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Multi-scale figure specific styles */
+#fig-multiscale {
+    margin: 2em 0;
+    text-align: center;
+    width: 100%;
+}
+
+#fig-multiscale .quarto-figure {
+    margin-bottom: 0;
+}
+
+#fig-multiscale figcaption {
+    margin-top: 1em;
+    text-align: center;
+}
+
+/* Ensure figures in composite layouts display properly */
+.quarto-layout-panel {
+    margin-bottom: 1em;
+}
+
+.quarto-layout-panel > figure {
+    margin: 0;
+}
+
+.quarto-layout-cell {
+    padding: 0 0.5em;
+}
+
+.quarto-layout-cell figure {
+    margin: 0;
+}
+
+/* Math display improvements */
+.math.display {
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+/* Bibliography styling */
+#refs {
+    margin-top: 2em;
+}
+
+.csl-entry {
+    margin-bottom: 0.5em;
+}
+
+/* Hidden elements */
+.hidden {
+    display: none !important;
+}
+
+/* Title block formatting */
+.quarto-title-meta-author {
+    column-gap: 1em;
+}
+
+.quarto-title-meta-contents p.author {
+    margin-bottom: 0.2em;
+}
+
+.quarto-title-meta-contents p.affiliation {
+    margin-top: 0;
+    margin-bottom: 0.5em;
+    font-size: 0.9em;
+    color: #666;
+}
+
+/* Abstract styling */
+.abstract {
+    margin: 2em 0;
+    padding: 1em;
+    background-color: #f8f9fa;
+    border-left: 4px solid #dee2e6;
+    font-size: 1.05em;
+}
+
+.abstract .block-title {
+    font-weight: bold;
+    margin-bottom: 0.5em;
+}
+
+/* Figure captions */
+figcaption {
+    margin-top: 0.5em;
+    font-size: 0.9em;
+    text-align: left;
+    color: #333;
+}
+
+/* Responsive images */
+@media (max-width: 768px) {
+    .quarto-layout-cell {
+        padding: 0.5em 0;
+    }
+    
+    #fig-multiscale img {
+        margin: 0 2px;
+    }
+}
+
+/* Small screen adjustments */
+@media (max-width: 576px) {
+    #fig-multiscale {
+        overflow-x: auto;
+    }
+}
+
+/* Full width figures */
+.full-width-figure {
+    width: 100%;
+    max-width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.full-width-figure img {
+    width: 100%;
+    height: auto;
+}
+
+/* Figure groups */
+.quarto-figure-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1em;
+}
+
+.quarto-figure-group .quarto-figure {
+    flex: 1 1 45%;
+    min-width: 300px;
+}
+
+/* Citations */
+.citation {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.citation:hover {
+    text-decoration: underline;
+}
+
+/* Header spacing */
+h1, h2, h3, h4, h5, h6 {
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+}
+
+h1 {
+    font-size: 2em;
+}
+
+h2 {
+    font-size: 1.5em;
+}
+
+h3 {
+    font-size: 1.25em;
+}
+
+/* Equation numbering */
+.eq-number {
+    float: right;
+    margin-left: 1em;
+}
+
+/* Layout fixes for full-width documents */
+.page-columns {
+    grid-column: 1 / -1;
+}
+
+.column-page-left {
+    width: 100%;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}

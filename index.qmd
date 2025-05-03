@@ -1,0 +1,37 @@
+---
+title: "Efficient and scalable posterior surrogate for seismic inversion via wavelet score-based generative models"
+---
+
+## Abstract
+
+Seismic inversion poses significant computational challenges due to its high dimensionality and non-unique solutions. We propose a novel method integrating the Wavelet Score-Based Generative Model (WSGM) with Simulation-Based Inference (SBI) to enable efficient posterior sampling for full-waveform inference. Our approach reduces memory requirements (≈50%) and significantly decreases sampling time (≈73%) compared to standard score-based diffusion models, while preserving accuracy.
+
+[Read the full paper](abstract.qmd)
+
+## Authors
+
+- Ege Cirakman (Istanbul Technical University)
+- Huseyin Tuna Erdinc (Georgia Institute of Technology)  
+- Felix J. Herrmann (Georgia Institute of Technology)
+
+## Resources
+
+- [GitHub Repository](https://github.com/slimgroup/IMAGE2025)
+- [arXiv Paper](abstract.pdf)
+- [HTML Version](abstract.html)
+
+## Contact
+
+For questions or comments about this work, please contact the authors via the GitHub repository.
+
+## Citation
+
+If you find this work useful in your research, please consider citing:
+
+```bibtex
+@misc{cirakman2025efficient,
+  title={Efficient and scalable posterior surrogate for seismic inversion via wavelet score-based generative models},
+  author={Cirakman, Ege and Erdinc, Huseyin Tuna and Herrmann, Felix J.},
+  year={2025},
+  institution={IMAGE2025}
+}
