@@ -1,5 +1,13 @@
 ---
 title: "Efficient and scalable posterior surrogate for seismic inversion via wavelet score-based generative models"
+format:
+  html:
+    css: styles.css
+    toc: false
+  pdf:
+    documentclass: article
+    include-in-header: 
+      - \usepackage{hyperref}
 ---
 
 ## Abstract
