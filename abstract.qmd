@@ -15,11 +15,9 @@ cite-method: citeproc
 csl: ref_styles/geophysical-journal-international.csl
 crossref:
   fig-prefix: Figure
-  eq-prefix: equation
   fig-title: Figure
-  eq-prefix: ""
+  eq-prefix: equation
 number-depth: 3
-pdf-engine: xelatex
 format:
   html:
     page-layout: full
