@@ -1,0 +1,34 @@
+# Quarto output
+_site/
+_freeze/
+*.html
+*_files/
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+
+# Mac files
+.DS_Store
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+
+# LaTeX auxiliary files
+*.aux
+*.log
+*.out
+*.synctex.gz
+*.fdb_latexmk
+*.fls
+
+# Editor files
+.vscode/
+.idea/
