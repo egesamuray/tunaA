@@ -1,9 +1,9 @@
 project:
-  type: website
-  output-dir: _site
+  type: website                 # manuscript-as-website
+  output-dir: _site             # what GitHub Pages will serve
 
 website:
-  title: "Efficient and scalable posterior surrogate for seismic inversion via wavelet score-based generative models"
+  title: "Efficient and Scalable Posterior Surrogate for Seismic Inversion via Wavelet Score-Based Generative Models"
   navbar:
     left:
       - href: index.qmd
@@ -12,7 +12,7 @@ website:
         text: Paper
     right:
       - icon: github
-        href: https://github.com/slimgroup/IMAGE2025
+        href: https://github.com/egesamuray/tunaAbi
   page-navigation: true
 
 format:
@@ -24,9 +24,7 @@ format:
     code-fold: true
     code-tools: true
     fig-cap-location: bottom
-    crossref:
-      fig-title: "Figure"
-      fig-prefix: "Figure"
-    citations-hover: true
-    footnotes-hover: true
     link-external-newwindow: true
+  pdf:                          # optional—keeps your LaTeX template
+    template-partials:
+      - IMAGEAbstractTemplate.latex
