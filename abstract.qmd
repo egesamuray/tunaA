@@ -29,9 +29,22 @@ format:
     toc: false
     css: styles.css
   arxiv-pdf:
-    keep-tex: true  
+    keep-tex: true
+    template: IMAGEAbstractTemplate.latex
+    documentclass: article
+    classoption: [onecolumn, 11pt]
+    pdf-engine: xelatex
     authorcols: true
     number-sections: false
+    include-in-header: 
+      - \usepackage{amsmath}
+      - \usepackage{graphicx}
+      - \usepackage{booktabs}
+      - \usepackage{hyperref}
+    cite-method: biblatex
+    biblatexoptions:
+      - style=IMAGE2025
+    bibliography: abstract.bib
 abstract: |
   Seismic inversion poses significant computational challenges due to its high dimensionality and non-unique solutions. We propose a novel method integrating the Wavelet Score-Based Generative Model (WSGM) with Simulation-Based Inference (SBI) to enable efficient posterior sampling for full-waveform inference. Our approach reduces memory requirements (≈50%) and significantly decreases sampling time (≈73%) compared to standard score-based diffusion models, while preserving accuracy. Furthermore, WSGM naturally supports the generation of velocity models at multiple resolutions, leveraging its hierarchical structure. Experimental results on pairs of synthetic seismic images and velocity models demonstrate that our method enables posterior sampling for large-scale 2D geophysical problems and facilitates the assessment of uncertainties relevant to subsurface characterization.
 ---
