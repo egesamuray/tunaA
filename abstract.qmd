@@ -10,18 +10,16 @@ author:
   - name: Felix J. Herrmann
     affiliations:
       - name: Georgia Institute of Technology
-filters:
-  - SLIM
 bibliography: abstract.bib
 cite-method: citeproc
-csl: geophysical-journal-international.csl
+csl: ref_styles/geophysical-journal-international.csl
 crossref:
   fig-prefix: Figure
   eq-prefix: equation
   fig-title: Figure
   eq-prefix: ""
 number-depth: 3
-pdf-engine: pdflatex
+pdf-engine: xelatex
 format:
   html:
     page-layout: full
@@ -46,7 +44,7 @@ $\def\textsc#1{\dosc#1\csod} \def\dosc#1#2\csod{{\rm #1{\small #2}}}$
 
 # Introduction
 
-Accurate subsurface characterization remains a fundamental challenge in geophysical exploration, with seismic inversion serving as the primary tool for reconstructing subsurface properties, such as the acoustic wave-speed. The inverse problem of estimating velocity models from seismic observations is inherently ill-posed due to its high dimensionality, non-uniqueness and sensitivity to noise [@virieux2009overview; @tarantola1987]. As noted in the literature, traditional methods such as full-waveform inversion (FWI), that rely on point estimates, fail to capture the full uncertainty of the problem and do not produce posterior distributions, which is essential for informed decision-making in reservoir characterization and management [@siahkoohi2022deep; @fichtner2013multiscale; @XIAO2025112160].
+Accurate subsurface characterization remains a fundamental challenge in geophysical exploration, with seismic inversion serving as the primary tool for reconstructing subsurface properties, such as the acoustic wave-speed. The inverse problem of estimating velocity models from seismic observations is inherently ill-posed due to its high dimensionality, non-uniqueness and sensitivity to noise [@virieux2009overview; @Tarantola2005InverseProblemTheory]. As noted in the literature, traditional methods such as full-waveform inversion (FWI), that rely on point estimates, fail to capture the full uncertainty of the problem and do not produce posterior distributions, which is essential for informed decision-making in reservoir characterization and management [@siahkoohi2022deep; @fichtner2013multiscale; @XIAO2025112160].
 
 Recent advances in machine learning have introduced promising algorithms to develop neural surrogates for posterior distributions. Specifically, SBI can facilitate posterior approximation of posterior $p(\mathbf{x} \mid \mathbf{y})$ in Bayesian inference without explicit evaluation of the costly likelihood/simulator, in our case directly related to the creation of subsurface images [@cranmer2020frontier]. SBI can be implemented using various types of generative models, such as conditional normalizing flows [@normalizing_flow] or score-based generative models [@song2020score], each with its own strengths and weaknesses. However, we observe that most of the existing generative modeling approaches often overlook the multiscale structure and long-range spatial correlations inherent in subsurface velocity models [@rizzuti2024multiscale].
 
