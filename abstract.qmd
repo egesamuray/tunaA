@@ -26,23 +26,19 @@ format:
     crossrefs-hover: true
     toc: false
     css: styles.css
-  arxiv-pdf:
-    keep-tex: true
-    template: IMAGEAbstractTemplate.latex
+  pdf:
     documentclass: article
     classoption: [onecolumn, 11pt]
-    pdf-engine: xelatex
-    authorcols: true
-    number-sections: false
+    pdf-engine: pdflatex
+    template: IMAGEAbstractTemplate.latex
+    keep-tex: true
+    cite-method: citeproc
+    bibliography: abstract.bib
     include-in-header: 
       - \usepackage{amsmath}
       - \usepackage{graphicx}
       - \usepackage{booktabs}
       - \usepackage{hyperref}
-    cite-method: biblatex
-    biblatexoptions:
-      - style=IMAGE2025
-    bibliography: abstract.bib
 abstract: |
   Seismic inversion poses significant computational challenges due to its high dimensionality and non-unique solutions. We propose a novel method integrating the Wavelet Score-Based Generative Model (WSGM) with Simulation-Based Inference (SBI) to enable efficient posterior sampling for full-waveform inference. Our approach reduces memory requirements (≈50%) and significantly decreases sampling time (≈73%) compared to standard score-based diffusion models, while preserving accuracy. Furthermore, WSGM naturally supports the generation of velocity models at multiple resolutions, leveraging its hierarchical structure. Experimental results on pairs of synthetic seismic images and velocity models demonstrate that our method enables posterior sampling for large-scale 2D geophysical problems and facilitates the assessment of uncertainties relevant to subsurface characterization.
 ---
@@ -71,7 +67,7 @@ Seismic imaging aims to reconstruct a velocity model $\mathbf{x} \in \mathbb{R}^
 
 ## SBI for posterior estimation
 
-SBI proposes to directly estimate posterior $p_{\theta}(\mathbf{x} \mid \mathbf{y})$ using simulated data pairs $\mathcal{D} = \{ (\mathbf{x}_i, \mathbf{y}_i) \}_{i=1}^{N}$, where $\mathbf{x}_i$'s are generated via the forward model, and train conditional generative models without explicit likelihood $p(\mathbf{y} \mid \mathbf{x})$ computation, which can be costly or physically impossible in many scientific settings [@sbi]. A common generative model, normalizing flows can perform this task; yet, the inherent invertible structure may cause limitations in its performance [@rizzuti2024multiscale]. In this work, we instead adopt a Conditional Score-Based Generative Model—specifically, WSGM—within the SBI framework, enabling efficient posterior estimation across multiple scales. Notably, in our formulation $\mathbf{y}$ represents RTM images, which serve as summary statistics extracted from seismic observational data [@deans2002maximally; @yin2024wise].
+SBI proposes to directly estimate posterior $p_{\theta}(\mathbf{x} \mid \mathbf{y})$ using simulated data pairs $\mathcal{D} = \{ (\mathbf{x}_i, \mathbf{y}_i) \}_{i=1}^{N}$, where $\mathbf{x}_i$'s are generated via the forward model, and train conditional generative models without explicit likelihood $p(\mathbf{y} \mid \mathbf{x})$ computation, which can be costly or physically impossible in many scientific settings [@cranmer2020frontier]. A common generative model, normalizing flows can perform this task; yet, the inherent invertible structure may cause limitations in its performance [@rizzuti2024multiscale]. In this work, we instead adopt a Conditional Score-Based Generative Model—specifically, WSGM—within the SBI framework, enabling efficient posterior estimation across multiple scales. Notably, in our formulation $\mathbf{y}$ represents RTM images, which serve as summary statistics extracted from seismic observational data [@deans2002maximally; @yin2024wise].
 
 ## Score-based generative models (SGMs) and WSGM
 
@@ -84,7 +80,7 @@ WSGM addresses these challenges through a multi-scale decomposition. WSGM propos
 To enable posterior estimation in seismic inversion, we extend SGM and WSGM to learn the conditional score $\nabla_{\mathbf{x}} \log p(\mathbf{x} \mid \mathbf{y})$. For SGM, this involves training a network $s_{\boldsymbol{\theta}}(\mathbf{x}, \mathbf{y}, \sigma(t))$ to approximate the score via a denoising objective conditioned on $\mathbf{y}$ [@batzolis2021conditional; @song2024fwi]. Given paired data $(\mathbf{x}, \mathbf{y})$, the objective becomes:
 
 $$
-\widehat{\boldsymbol{\theta}}_{\text{SGM}} = \mathop{\mathrm{argmin}\,}\limits_{\boldsymbol{\theta}}\mathbb{E}_{\mathbf{y},\mathbf{x}, \mathbf{n}} \left\| s_{\boldsymbol{\theta}}(\mathbf{x} + \mathbf{n}, \mathbf{y}, \sigma(t)) - \mathbf{x} \right\|_2^2
+\widehat{\boldsymbol{\theta}}_{\text{SGM}} = \argmin_{\boldsymbol{\theta}}\mathbb{E}_{\mathbf{y},\mathbf{x}, \mathbf{n}} \left\| s_{\boldsymbol{\theta}}(\mathbf{x} + \mathbf{n}, \mathbf{y}, \sigma(t)) - \mathbf{x} \right\|_2^2
 $$
 
 where $\mathbf{n} \sim \mathcal{N}(\mathbf{0}, \sigma(t)^2 \mathbf{I})$ and $\sigma(t)$ follows a noise schedule [@karras2022elucidating].
@@ -100,7 +96,7 @@ where $\mathbf{x}_j$ is the velocity approximation at scale $j$, formed via norm
 With this factorization, we have divided the learning process to different cascaded models. The learning at the coarsest scale ($j=J$) can be expressed with the objective of SGM. However, for finer scales the score network learns $s_{\boldsymbol{\theta}_j}(\overline{\mathbf{x}}_j, \mathbf{x}_j, \overline{\mathbf{y}}_j,\sigma(t))$. The loss at scale $j$ integrates these dependencies and the objective becomes:
 
 $$
-\widehat{\boldsymbol{\theta}}_{\text{WSGM}} = \mathop{\mathrm{argmin}\,}\limits_{\boldsymbol{\theta}}\mathbb{E}_{\overline{\mathbf{y}}_j,\mathbf{x}_j,\overline{\mathbf{x}}_j,\mathbf{n}} \left\| s_{\boldsymbol{\theta}}(\overline{\mathbf{x}}_j + \mathbf{n}, \mathbf{x}_j, \overline{\mathbf{y}}_j, \sigma(t)) - \overline{\mathbf{x}}_j \right\|_2^2
+\widehat{\boldsymbol{\theta}}_{\text{WSGM}} = \argmin_{\boldsymbol{\theta}}\mathbb{E}_{\overline{\mathbf{y}}_j,\mathbf{x}_j,\overline{\mathbf{x}}_j,\mathbf{n}} \left\| s_{\boldsymbol{\theta}}(\overline{\mathbf{x}}_j + \mathbf{n}, \mathbf{x}_j, \overline{\mathbf{y}}_j, \sigma(t)) - \overline{\mathbf{x}}_j \right\|_2^2
 $$
 
 Posterior sampling proceeds by solving the reverse-time SDE conditioned on unseen $\mathbf{y}^{\text{obs}}$. For WSGM, this process occurs sequentially: the coarsest-scale velocity $\mathbf{x}_J$ is sampled first, followed by detail coefficients $\overline{\mathbf{x}}_J$, conditioned on $\mathbf{x}_J$ and $\overline{\mathbf{y}}_J$. Then inverse wavelet transform of aggregated scaling and detail coefficients are used to proceed with finer scale and this process is repeated up to the original scale of inputs.
@@ -114,39 +110,39 @@ To assess the proposed methodology, we utilize a synthetic 3D Earth model derive
 ## Inference results
 
 ::: {#fig-composite layout-ncol=2}
-![RTM](./figs/rtm483.png){group="composite"}
+![RTM](./figs/rtm483.png){width="90%"}
 
-![GT](./figs/483_velo_rainbow.png){group="composite"}
+![GT](./figs/483_velo_rainbow.png){width="90%"}
 
-![WSGM](./figs/gen8W.png){group="composite"}
+![WSGM](./figs/gen8W.png){width="90%"}
 
-![SGM](./figs/imagegen4WSGM.png){group="composite"}
+![SGM](./figs/imagegen4WSGM.png){width="90%"}
 
 Posterior sampling results showing: (a) initial RTM condition on which samples of posterior are conditioned, (b) ground-truth (GT) velocity model, (c) WSGM posterior sample, and (d) SGM posterior sample. The WSGM result shows superior preservation of fine-scale details and reduced noise.
 :::
 
 ::: {#fig-multiscale}
 ::: {style="text-align: center; margin-bottom: 20px;"}
-Coarse scale ————————————————————————————————→ Fine scale
+Coarse scale &nbsp; ——————————————————————————————————&gt; &nbsp; Fine scale
 :::
 
 ::: {style="display: flex; align-items: flex-end; justify-content: flex-start; gap: 0; margin-bottom: 20px;"}
-<div style="display: inline-block;">![](./figs/j3_.png){width="64px" style="display: block;"}</div>
-<div style="display: inline-block;">![](./figs/j2_.png){width="128px" style="display: block;"}</div>
-<div style="display: inline-block;">![](./figs/j1_.png){width="256px" style="display: block;"}</div>
-<div style="display: inline-block;">![](./figs/WSGM_m1.png){width="512px" style="display: block;"}</div>
+![](./figs/j3_.png){width="6.25%" id="32x32_scale"}
+![](./figs/j2_.png){width="12.5%" id="64x64_scale"}
+![](./figs/j1_.png){width="25%" id="128x128_scale"}
+![](./figs/WSGM_m1.png){width="50%" id="256x256_scale"}
 :::
 
 Multi-scale visualization showing the progression from coarse to fine resolution in wavelet space. The progression represents the hierarchical nature of the wavelet decomposition, with each level containing increasingly detailed geological structures.
 :::
 
-::: {#fig-performance style="max-width: 100%;"}
+::: {#fig-performance .full-width-figure}
 ![](./figs/fig3_f.png){width="100%"}
 
 Performance analysis and uncertainty quantification: (a) RTM condition, (b) ground-truth velocity model (GT) velocity, conditional mean posterior samples from (c) WSGM and (d) SGM, the standard deviation of (e) WSGM and (f) SGM, and RMSE for (g) WSGM and (h) SGM. Note the correlation between higher uncertainty and error regions.
 :::
 
-::: {#fig-comparison style="max-width: 100%;"}
+::: {#fig-comparison .figure-container}
 ![](./figs/fig4_s.png){width="100%"}
 
 Comparison of GT, WSGM, and SGM. Posterior samples for WSGM and SGM were generated starting from the same initial noise.
@@ -172,3 +168,16 @@ We have presented a novel approach for seismic inversion that leverages wavelet-
 4. Supporting multi-resolution inference through its hierarchical structure
 
 These advantages make WSGM particularly suitable for large-scale geophysical applications where computational efficiency and uncertainty quantification are crucial. Future work will investigate the use of curvelet transforms to further enhance directional feature representation, with potential application to 3D seismic volumes.
+
+::: {.hidden aria-hidden="true"}
+<span class="glightbox-desc lightbox-desc-1">(a) RTM</span>
+<span class="glightbox-desc lightbox-desc-2">(b) GT</span>
+<span class="glightbox-desc lightbox-desc-3">(c) WSGM</span>
+<span class="glightbox-desc lightbox-desc-4">(d) SGM</span>
+<span class="glightbox-desc lightbox-desc-5">Figure&nbsp;2: Multi-scale visualization showing the progression from coarse to fine resolution in wavelet space. The progression represents the hierarchical nature of the wavelet decomposition, with each level containing increasingly detailed geological structures.</span>
+<span class="glightbox-desc lightbox-desc-6">Figure&nbsp;2: Multi-scale visualization showing the progression from coarse to fine resolution in wavelet space. The progression represents the hierarchical nature of the wavelet decomposition, with each level containing increasingly detailed geological structures.</span>
+<span class="glightbox-desc lightbox-desc-7">Figure&nbsp;2: Multi-scale visualization showing the progression from coarse to fine resolution in wavelet space. The progression represents the hierarchical nature of the wavelet decomposition, with each level containing increasingly detailed geological structures.</span>
+<span class="glightbox-desc lightbox-desc-8">Figure&nbsp;2: Multi-scale visualization showing the progression from coarse to fine resolution in wavelet space. The progression represents the hierarchical nature of the wavelet decomposition, with each level containing increasingly detailed geological structures.</span>
+<span class="glightbox-desc lightbox-desc-9">Figure&nbsp;3: Performance analysis and uncertainty quantification: (a) RTM condition, (b) ground-truth velocity model (GT) velocity, conditional mean posterior samples from (c) WSGM and (d) SGM, the standard deviation of (e) WSGM and (f) SGM, and RMSE for (g) WSGM and (h) SGM. Note the correlation between higher uncertainty and error regions.</span>
+<span class="glightbox-desc lightbox-desc-10">Figure&nbsp;4: Comparison of GT, WSGM, and SGM. Posterior samples for WSGM and SGM were generated starting from the same initial noise.</span>
+:::
