@@ -1,6 +1,9 @@
 project:
   type: website
   output-dir: _site
+  render:
+    - abstract.qmd
+    - index.qmd
 
 website:
   title: "Efficient and scalable posterior surrogate for seismic inversion via wavelet score-based generative models"
