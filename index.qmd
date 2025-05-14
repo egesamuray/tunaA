@@ -22,6 +22,13 @@ Seismic inversion poses significant computational challenges due to its high dim
 - Huseyin Tuna Erdinc (Georgia Institute of Technology)  
 - Felix J. Herrmann (Georgia Institute of Technology)
 
+## Key Findings
+
+- WSGM reduces memory usage by approximately 50% compared to standard score-based diffusion models
+- Sampling time is reduced by about 73% while maintaining comparable accuracy (SSIM = 0.87 ± 0.03)
+- Multi-scale wavelet decomposition enables hierarchical modeling from coarse to fine scales
+- Uncertainty estimates correlate well with actual prediction errors
+
 ## Resources
 
 - [GitHub Repository](https://github.com/slimgroup/IMAGE2025)
@@ -37,9 +44,10 @@ For questions or comments about this work, please contact the authors via the Gi
 If you find this work useful in your research, please consider citing:
 
 ```bibtex
-@misc{cirakman2025efficient,
+@inproceedings{cirakman2025efficient,
   title={Efficient and scalable posterior surrogate for seismic inversion via wavelet score-based generative models},
   author={Cirakman, Ege and Erdinc, Huseyin Tuna and Herrmann, Felix J.},
+  booktitle={IMAGE2025 Annual Conference},
   year={2025},
-  institution={IMAGE2025}
+  organization={IMAGE}
 }
