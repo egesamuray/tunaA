@@ -33,12 +33,3 @@ format:
     citations-hover: true
     footnotes-hover: true
     link-external-newwindow: true
-  pdf:
-    documentclass: article
-    classoption: [onecolumn, 11pt]
-    keep-tex: true
-    toc: false
-    include-in-header: 
-      - \usepackage{amsmath}
-      - \usepackage{booktabs}
-      - \usepackage{hyperref}

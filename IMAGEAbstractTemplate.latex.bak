@@ -1,0 +1,26 @@
+\documentclass{IMAGE2025}
+
+% An example of defining macros
+\newcommand{\rs}[1]{\mathstrut\mbox{\scriptsize\rm #1}}
+\newcommand{\rr}[1]{\mbox{\rm #1}}
+
+\begin{document}
+
+\title{$title$}
+
+\renewcommand{\thefootnote}{\fnsymbol{footnote}} 
+
+\author{$author$}
+
+\maketitle
+
+\begin{abstract}
+    $abstract$
+\end{abstract}
+
+$body$
+
+\bibliographystyle{IMAGE2025}  % style file is seg.bst
+\bibliography{abstract.bib}
+
+\end{document}

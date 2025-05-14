@@ -34,15 +34,15 @@ format:
     keep-tex: true
     cite-method: citeproc
     bibliography: abstract.bib
-    include-in-header: 
-      - \usepackage{amsmath}
-      - \usepackage{graphicx}
-      - \usepackage{booktabs}
-      - \usepackage{hyperref}
+    header-includes: |
+      \usepackage{amsmath}
+      \usepackage{graphicx}
+      \usepackage{booktabs}
+      \usepackage{hyperref}
+      \usepackage{float}
 abstract: |
-  Seismic inversion poses significant computational challenges due to its high dimensionality and non-unique solutions. We propose a novel method integrating the Wavelet Score-Based Generative Model (WSGM) with Simulation-Based Inference (SBI) to enable efficient posterior sampling for full-waveform inference. Our approach reduces memory requirements (≈50%) and significantly decreases sampling time (≈73%) compared to standard score-based diffusion models, while preserving accuracy. Furthermore, WSGM naturally supports the generation of velocity models at multiple resolutions, leveraging its hierarchical structure. Experimental results on pairs of synthetic seismic images and velocity models demonstrate that our method enables posterior sampling for large-scale 2D geophysical problems and facilitates the assessment of uncertainties relevant to subsurface characterization.
+  Seismic inversion poses significant computational challenges due to its high dimensionality and non-unique solutions. We propose a novel method integrating the Wavelet Score-Based Generative Model (WSGM) with Simulation-Based Inference (SBI) to enable efficient posterior sampling for full-waveform inference. Our approach reduces memory requirements (approximately 50%) and significantly decreases sampling time (approximately 73%) compared to standard score-based diffusion models, while preserving accuracy. Furthermore, WSGM naturally supports the generation of velocity models at multiple resolutions, leveraging its hierarchical structure. Experimental results on pairs of synthetic seismic images and velocity models demonstrate that our method enables posterior sampling for large-scale 2D geophysical problems and facilitates the assessment of uncertainties relevant to subsurface characterization.
 ---
-
 ::: {.hidden}
 \newcommand{\argmin}{\mathop{\mathrm{argmin}\,}\limits}
 \newcommand{\argmax}{\mathop{\mathrm{argmax}\,}\limits}

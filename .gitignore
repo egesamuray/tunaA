@@ -32,3 +32,5 @@ ENV/
 # Editor files
 .vscode/
 .idea/
+
+/.quarto/

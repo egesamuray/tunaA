@@ -1,0 +1,40 @@
+\documentclass{IMAGE2025}
+
+% Add required packages
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{float}
+
+\begin{document}
+
+\title{Efficient and scalable posterior surrogate for seismic inversion via wavelet score-based generative models}
+
+\renewcommand{\thefootnote}{\fnsymbol{footnote}} 
+
+\author{Ege Cirakman$^1$, Huseyin Tuna Erdinc$^2$, Felix J. Herrmann$^2$\\
+$^1$Istanbul Technical University\\
+$^2$Georgia Institute of Technology}
+
+\maketitle
+
+\begin{abstract}
+Seismic inversion poses significant computational challenges due to its high dimensionality and non-unique solutions. We propose a novel method integrating the Wavelet Score-Based Generative Model (WSGM) with Simulation-Based Inference (SBI) to enable efficient posterior sampling for full-waveform inference. Our approach reduces memory requirements (approximately 50\%) and significantly decreases sampling time (approximately 73\%) compared to standard score-based diffusion models, while preserving accuracy. Furthermore, WSGM naturally supports the generation of velocity models at multiple resolutions, leveraging its hierarchical structure. Experimental results on pairs of synthetic seismic images and velocity models demonstrate that our method enables posterior sampling for large-scale 2D geophysical problems and facilitates the assessment of uncertainties relevant to subsurface characterization.
+\end{abstract}
+
+% Copy the HTML-rendered content and convert it to LaTeX manually
+% Use the HTML output as a guide but ensure it's proper LaTeX syntax
+
+\section{Introduction}
+
+Accurate subsurface characterization remains a fundamental challenge in geophysical exploration, with seismic inversion serving as the primary tool for reconstructing subsurface properties, such as the acoustic wave-speed. The inverse problem of estimating velocity models from seismic observations is inherently ill-posed due to its high dimensionality, non-uniqueness and sensitivity to noise \cite{virieux2009overview, Tarantola2005InverseProblemTheory}. As noted in the literature, traditional methods such as full-waveform inversion (FWI), that rely on point estimates, fail to capture the full uncertainty of the problem and do not produce posterior distributions, which is essential for informed decision-making in reservoir characterization and management \cite{siahkoohi2022deep, fichtner2013multiscale, XIAO2025112160}.
+
+% Continue with the rest of your content converted to proper LaTeX syntax
+% Include proper figure environments using \begin{figure} and \subfloat
+
+\bibliographystyle{IMAGE2025}
+\bibliography{abstract.bib}
+
+\end{document}

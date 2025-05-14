@@ -4,17 +4,17 @@ format:
   html:
     css: styles.css
     toc: false
-  pdf:
-    documentclass: article
-    include-in-header: 
-      - \usepackage{hyperref}
 ---
 
 ## Abstract
 
-Seismic inversion poses significant computational challenges due to its high dimensionality and non-unique solutions. We propose a novel method integrating the Wavelet Score-Based Generative Model (WSGM) with Simulation-Based Inference (SBI) to enable efficient posterior sampling for full-waveform inference. Our approach reduces memory requirements (≈50%) and significantly decreases sampling time (≈73%) compared to standard score-based diffusion models, while preserving accuracy.
+Seismic inversion poses significant computational challenges due to its high dimensionality and non-unique solutions. We propose a novel method integrating the Wavelet Score-Based Generative Model (WSGM) with Simulation-Based Inference (SBI) to enable efficient posterior sampling for full-waveform inference. Our approach reduces memory requirements (approximately 50%) and significantly decreases sampling time (approximately 73%) compared to standard score-based diffusion models, while preserving accuracy.
 
-[Read the full paper](abstract.qmd)
+### Status
+
+The full paper is available in HTML format while we work on PDF rendering issues.
+
+[View HTML Version](abstract.html)
 
 ## Authors
 
@@ -25,29 +25,11 @@ Seismic inversion poses significant computational challenges due to its high dim
 ## Key Findings
 
 - WSGM reduces memory usage by approximately 50% compared to standard score-based diffusion models
-- Sampling time is reduced by about 73% while maintaining comparable accuracy (SSIM = 0.87 ± 0.03)
+- Sampling time is reduced by about 73% while maintaining comparable accuracy
 - Multi-scale wavelet decomposition enables hierarchical modeling from coarse to fine scales
 - Uncertainty estimates correlate well with actual prediction errors
 
 ## Resources
 
 - [GitHub Repository](https://github.com/slimgroup/IMAGE2025)
-- [arXiv Paper](abstract.pdf)
 - [HTML Version](abstract.html)
-
-## Contact
-
-For questions or comments about this work, please contact the authors via the GitHub repository.
-
-## Citation
-
-If you find this work useful in your research, please consider citing:
-
-```bibtex
-@inproceedings{cirakman2025efficient,
-  title={Efficient and scalable posterior surrogate for seismic inversion via wavelet score-based generative models},
-  author={Cirakman, Ege and Erdinc, Huseyin Tuna and Herrmann, Felix J.},
-  booktitle={IMAGE2025 Annual Conference},
-  year={2025},
-  organization={IMAGE}
-}

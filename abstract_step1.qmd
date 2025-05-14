@@ -1,0 +1,35 @@
+---
+title: "Efficient and scalable posterior surrogate for seismic inversion via wavelet score-based generative models"
+author:
+  - name: Ege Cirakman
+    affiliations:
+      - name: Istanbul Technical University
+  - name: Huseyin Tuna Erdinc  
+    affiliations:
+      - name: Georgia Institute of Technology
+  - name: Felix J. Herrmann
+    affiliations:
+      - name: Georgia Institute of Technology
+bibliography: abstract.bib
+format:
+  pdf:
+    documentclass: article
+    include-in-header:
+      text: |
+        \usepackage{amsmath,amssymb}
+        \usepackage{graphicx}
+        \usepackage{hyperref}
+        \usepackage{booktabs}
+abstract: |
+  Seismic inversion poses significant computational challenges due to its high dimensionality and non-unique solutions. We propose a novel method integrating the Wavelet Score-Based Generative Model (WSGM) with Simulation-Based Inference (SBI) to enable efficient posterior sampling for full-waveform inference. Our approach reduces memory requirements (approximately 50%) and significantly decreases sampling time (approximately 73%) compared to standard score-based diffusion models, while preserving accuracy.
+---
+
+# Introduction
+
+Accurate subsurface characterization remains a fundamental challenge in geophysical exploration, with seismic inversion serving as the primary tool for reconstructing subsurface properties, such as the acoustic wave-speed. The inverse problem of estimating velocity models from seismic observations is inherently ill-posed due to its high dimensionality, non-uniqueness and sensitivity to noise [@virieux2009overview; @Tarantola2005InverseProblemTheory]. 
+
+# Theory
+
+## Seismic imaging
+
+Seismic imaging aims to reconstruct a velocity model $\mathbf{x} \in \mathbb{R}^n$ from seismic observations $\mathbf{y} \in \mathbb{R}^m$ recorded at the surface, governed by the forward model $\mathbf{y} = \mathbf{\mathcal{F}}(\mathbf{x}) + \boldsymbol{\epsilon}$, where $\mathbf{\mathcal{F}}: \mathbb{R}^n \rightarrow \mathbb{R}^m$ is a nonlinear operator solving the wave equation and $\boldsymbol{\epsilon}$ represents noise [@virieux2009overview].

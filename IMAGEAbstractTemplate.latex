@@ -4,6 +4,16 @@
 \newcommand{\rs}[1]{\mathstrut\mbox{\scriptsize\rm #1}}
 \newcommand{\rr}[1]{\mbox{\rm #1}}
 
+% Required packages
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{float}
+
+% Include any additional packages from the document
+$header-includes$
+
 \begin{document}
 
 \title{$title$}
@@ -21,6 +31,6 @@
 $body$
 
 \bibliographystyle{IMAGE2025}  % style file is seg.bst
-\bibliography{abstract.bib}
+\bibliography{$bibliography$}
 
 \end{document}

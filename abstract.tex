@@ -1,123 +1,22 @@
-% Options for packages loaded elsewhere
-\PassOptionsToPackage{unicode}{hyperref}
-\PassOptionsToPackage{hyphens}{url}
-\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
-%
-\documentclass[
-]{article}
+\documentclass{IMAGE2025}
 
-\usepackage{amsmath,amssymb}
-\usepackage{iftex}
-\ifPDFTeX
-  \usepackage[T1]{fontenc}
-  \usepackage[utf8]{inputenc}
-  \usepackage{textcomp} % provide euro and other symbols
-\else % if luatex or xetex
-  \usepackage{unicode-math}
-  \defaultfontfeatures{Scale=MatchLowercase}
-  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
-\fi
-\usepackage{lmodern}
-\ifPDFTeX\else  
-    % xetex/luatex font selection
-  \setmainfont[]{Latin Modern Roman}
-  \setmathfont[]{Latin Modern Math}
-\fi
-% Use upquote if available, for straight quotes in verbatim environments
-\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
-\IfFileExists{microtype.sty}{% use microtype if available
-  \usepackage[]{microtype}
-  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
-}{}
-\makeatletter
-\@ifundefined{KOMAClassName}{% if non-KOMA class
-  \IfFileExists{parskip.sty}{%
-    \usepackage{parskip}
-  }{% else
-    \setlength{\parindent}{0pt}
-    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
-}{% if KOMA class
-  \KOMAoptions{parskip=half}}
-\makeatother
-\usepackage{xcolor}
-\setlength{\emergencystretch}{3em} % prevent overfull lines
-\setcounter{secnumdepth}{3}
-% Make \paragraph and \subparagraph free-standing
-\ifx\paragraph\undefined\else
-  \let\oldparagraph\paragraph
-  \renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
-\fi
-\ifx\subparagraph\undefined\else
-  \let\oldsubparagraph\subparagraph
-  \renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
-\fi
+% An example of defining macros
+\newcommand{\rs}[1]{\mathstrut\mbox{\scriptsize\rm #1}}
+\newcommand{\rr}[1]{\mbox{\rm #1}}
 
-
-\providecommand{\tightlist}{%
-  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}\usepackage{longtable,booktabs,array}
-\usepackage{calc} % for calculating minipage widths
-% Correct order of tables after \paragraph or \subparagraph
-\usepackage{etoolbox}
-\makeatletter
-\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
-\makeatother
-% Allow footnotes in longtable head/foot
-\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
-\makesavenoteenv{longtable}
-\usepackage{graphicx}
-\makeatletter
-\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
-\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
-\makeatother
-% Scale images if necessary, so that they will not overflow the page
-% margins by default, and it is still possible to overwrite the defaults
-% using explicit options in \includegraphics[width, height, ...]{}
-\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
-% Set default figure placement to htbp
-\makeatletter
-\def\fps@figure{htbp}
-\makeatother
-% definitions for citeproc citations
-\NewDocumentCommand\citeproctext{}{}
-\NewDocumentCommand\citeproc{mm}{%
-  \begingroup\def\citeproctext{#2}\cite{#1}\endgroup}
-\makeatletter
- % allow citations to break across lines
- \let\@cite@ofmt\@firstofone
- % avoid brackets around text for \cite:
- \def\@biblabel#1{}
- \def\@cite#1#2{{#1\if@tempswa , #2\fi}}
-\makeatother
-\newlength{\cslhangindent}
-\setlength{\cslhangindent}{1.5em}
-\newlength{\csllabelwidth}
-\setlength{\csllabelwidth}{3em}
-\newenvironment{CSLReferences}[2] % #1 hanging-indent, #2 entry-spacing
- {\begin{list}{}{%
-  \setlength{\itemindent}{0pt}
-  \setlength{\leftmargin}{0pt}
-  \setlength{\parsep}{0pt}
-  % turn on hanging indent if param 1 is 1
-  \ifodd #1
-   \setlength{\leftmargin}{\cslhangindent}
-   \setlength{\itemindent}{-1\cslhangindent}
-  \fi
-  % set entry spacing
-  \setlength{\itemsep}{#2\baselineskip}}}
- {\end{list}}
-\usepackage{calc}
-\newcommand{\CSLBlock}[1]{\hfill\break\parbox[t]{\linewidth}{\strut\ignorespaces#1\strut}}
-\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{\strut#1\strut}}
-\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{\strut#1\strut}}
-\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
-
-\usepackage{arxiv}
-\usepackage{orcidlink}
+% Required packages
 \usepackage{amsmath}
-\usepackage[T1]{fontenc}
-\makeatletter
-\@ifpackageloaded{caption}{}{\usepackage{caption}}
-\AtBeginDocument{%
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{float}
+
+% Include any additional packages from the document
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage{float}\makeatletter\@ifpackageloaded{caption}{}{\usepackage{caption}}\AtBeginDocument{%
 \ifdefined\contentsname
   \renewcommand*\contentsname{Table of contents}
 \else
@@ -143,72 +42,44 @@
 \else
   \newcommand\tablename{Table}
 \fi
-}
-\@ifpackageloaded{float}{}{\usepackage{float}}
+}\@ifpackageloaded{float}{}{\usepackage{float}}
 \floatstyle{ruled}
 \@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
-\floatname{codelisting}{Listing}
-\newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
-\makeatother
-\makeatletter
-\makeatother
-\makeatletter
-\@ifpackageloaded{caption}{}{\usepackage{caption}}
-\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
-\makeatother
-\ifLuaTeX
-  \usepackage{selnolig}  % disable illegal ligatures
-\fi
-\usepackage{bookmark}
+\floatname{codelisting}{Listing}\newcommand*\listoflistings{\listof{codelisting}{List of Listings}}\makeatother\makeatletter\makeatother\makeatletter\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}\makeatother
 
-\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
-\urlstyle{same} % disable monospaced font for URLs
-\hypersetup{
-  pdftitle={Efficient and scalable posterior surrogate for seismic inversion via wavelet score-based generative models},
-  pdfauthor={Ege Cirakman; Huseyin Tuna Erdinc; Felix J. Herrmann},
-  colorlinks=true,
-  linkcolor={blue},
-  filecolor={Maroon},
-  citecolor={Blue},
-  urlcolor={Blue},
-  pdfcreator={LaTeX via pandoc}}
+\begin{document}
 
-\newcommand{\runninghead}{A Preprint }
 \title{Efficient and scalable posterior surrogate for seismic inversion
 via wavelet score-based generative models}
-\def\asep{\\\\\\ } % default: all authors on same column
-\def\asep{\And }
-\author{\textbf{Ege Cirakman}\\\\Istanbul Technical
-University\\\\\asep\textbf{Huseyin Tuna Erdinc}\\\\Georgia Institute of
-Technology\\\\\asep\textbf{Felix J. Herrmann}\\\\Georgia Institute of
-Technology\\\\}
-\date{}
-\begin{document}
+
+\renewcommand{\thefootnote}{\fnsymbol{footnote}} 
+
+\author{Ege CirakmanHuseyin Tuna ErdincFelix J. Herrmann}
+
 \maketitle
+
 \begin{abstract}
-Seismic inversion poses significant computational challenges due to its
-high dimensionality and non-unique solutions. We propose a novel method
-integrating the Wavelet Score-Based Generative Model (WSGM) with
-Simulation-Based Inference (SBI) to enable efficient posterior sampling
-for full-waveform inference. Our approach reduces memory requirements
-(\(\approx 50\%\)) and significantly decreases sampling time
-(\(\approx 73\%\)) compared to standard score-based diffusion models,
-while preserving accuracy. Furthermore, WSGM naturally supports the
-generation of velocity models at multiple resolutions, leveraging its
-hierarchical structure. Experimental results on pairs of synthetic
-seismic images and velocity models demonstrate that our method enables
-posterior sampling for large-scale 2D geophysical problems and
-facilitates the assessment of uncertainties relevant to subsurface
-characterization.
+    Seismic inversion poses significant computational challenges due to
+    its high dimensionality and non-unique solutions. We propose a novel
+    method integrating the Wavelet Score-Based Generative Model (WSGM)
+    with Simulation-Based Inference (SBI) to enable efficient posterior
+    sampling for full-waveform inference. Our approach reduces memory
+    requirements (approximately 50\%) and significantly decreases
+    sampling time (approximately 73\%) compared to standard score-based
+    diffusion models, while preserving accuracy. Furthermore, WSGM
+    naturally supports the generation of velocity models at multiple
+    resolutions, leveraging its hierarchical structure. Experimental
+    results on pairs of synthetic seismic images and velocity models
+    demonstrate that our method enables posterior sampling for
+    large-scale 2D geophysical problems and facilitates the assessment
+    of uncertainties relevant to subsurface characterization.
 \end{abstract}
 
 \newcommand{\argmin}{\mathop{\mathrm{argmin}\,}\limits}
 \newcommand{\argmax}{\mathop{\mathrm{argmax}\,}\limits}
 
-\[
-\def\textsc#1{\dosc#1\csod} 
-\def\dosc#1#2\csod{{\rm #1{\small #2}}} 
-\]
+\(\def\textsc#1{\dosc#1\csod} \def\dosc#1#2\csod{{\rm #1{\small #2}}}\)
 
 \section{Introduction}\label{introduction}
 
@@ -217,33 +88,35 @@ geophysical exploration, with seismic inversion serving as the primary
 tool for reconstructing subsurface properties, such as the acoustic
 wave-speed. The inverse problem of estimating velocity models from
 seismic observations is inherently ill-posed due to its high
-dimensionality, non-uniqueness and sensitivity to noise {[}1{]},
-{[}2{]}. As noted in the literature, traditional methods such as
-full-waveform inversion (FWI), that rely on point estimates, fail to
-capture the full uncertainty of the problem and do not produce posterior
-distributions, which is essential for informed decision-making in
-reservoir characterization and management {[}3{]}, {[}4{]}, {[}5{]}.
+dimensionality, non-uniqueness and sensitivity to noise (Tarantola 2005;
+Virieux \& Operto 2009). As noted in the literature, traditional methods
+such as full-waveform inversion (FWI), that rely on point estimates,
+fail to capture the full uncertainty of the problem and do not produce
+posterior distributions, which is essential for informed decision-making
+in reservoir characterization and management (Fichtner \emph{et al.}
+2013; Siahkoohi \emph{et al.} 2022; Xiao \emph{et al.} 2025).
 
 Recent advances in machine learning have introduced promising algorithms
 to develop neural surrogates for posterior distributions. Specifically,
 SBI can facilitate posterior approximation of posterior
 \(p(\mathbf{x} \mid \mathbf{y})\) in Bayesian inference without explicit
 evaluation of the costly likelihood/simulator, in our case directly
-related to the creation of subsurface images {[}6{]}. SBI can be
-implemented using various types of generative models, such as
-conditional normalizing flows {[}7{]} or score-based generative models
-{[}8{]}, each with its own strengths and weaknesses. However, we observe
-that most of the existing generative modeling approaches often overlook
-the multiscale structure and long-range spatial correlations inherent in
-subsurface velocity models \textbf{rizzuti2024multiscale?}.
+related to the creation of subsurface images (Cranmer \emph{et al.}
+2020). SBI can be implemented using various types of generative models,
+such as conditional normalizing flows (Dinh \emph{et al.} 2017) or
+score-based generative models (Song \emph{et al.} 2020), each with its
+own strengths and weaknesses. However, we observe that most of the
+existing generative modeling approaches often overlook the multiscale
+structure and long-range spatial correlations inherent in subsurface
+velocity models (Rizzuti \& Vasconcelos 2024).
 
-Based on this insight, we propose a conditional variation of WSGM
-{[}9{]} within the SBI framework to perform posterior estimation for
-velocity inversion from seismic images. Our approach leverages
-Daubechies (db2) wavelets to decompose the posterior across multiple
-resolution scales (\(32 \times 32\) to \(256 \times 256\)), enabling
-hierarchical modeling and formulation of scale-specific score functions.
-This multi-scale factorization maintains consistency between
+Based on this insight, we propose a conditional variation of WSGM (Guth
+\emph{et al.} 2022) within the SBI framework to perform posterior
+estimation for velocity inversion from seismic images. Our approach
+leverages Daubechies (db2) wavelets to decompose the posterior across
+multiple resolution scales (\(32 \times 32\) to \(256 \times 256\)),
+enabling hierarchical modeling and formulation of scale-specific score
+functions. This multi-scale factorization maintains consistency between
 observations and velocity estimates across resolutions, while reducing
 computational requirements compared to standard diffusion methods.
 
@@ -269,15 +142,15 @@ forward model
 \(\mathbf{y} = \mathbf{\mathcal{F}}(\mathbf{x}) + \boldsymbol{\epsilon}\),
 where \(\mathbf{\mathcal{F}}: \mathbb{R}^n \rightarrow \mathbb{R}^m\) is
 a nonlinear operator solving the wave equation and
-\(\boldsymbol{\epsilon}\) represents noise {[}1{]}. The inverse problem
-is ill-posed, non-uniqueness (e.g.,
+\(\boldsymbol{\epsilon}\) represents noise (Virieux \& Operto 2009). The
+inverse problem is ill-posed, non-uniqueness (e.g.,
 \(\mathbf{\mathcal{F}}(\mathbf{x}_1) \approx \mathbf{\mathcal{F}}(\mathbf{x}_2) \approx \mathbf{y}\))
 and computational expensive due to its high dimensionality. Traditional
 full-waveform inversion (FWI) minimizes
 \(\|\mathbf{\mathcal{F}}(\mathbf{x}) - \mathbf{y}\|_2^2\) misfit
 objective to estimate \(\mathbf{x}\), but it provides only point
-estimates without systematic uncertainty quantification {[}1{]}. In
-contrast, our study targets estimation of the posterior
+estimates without systematic uncertainty quantification (Virieux \&
+Operto 2009). In contrast, our study targets estimation of the posterior
 \(p(\mathbf{x} \mid \mathbf{y})\) in the Bayesian inference setting
 using the WSGM with SBI.
 
@@ -290,15 +163,15 @@ SBI proposes to directly estimate posterior
 \(\mathbf{x}_i\)'s are generated via the forward model, and train
 conditional generative models without explicit likelihood
 \(p(\mathbf{y} \mid \mathbf{x})\) computation, which can be costly or
-physically impossible in many scientific settings {[}6{]}. A common
-generative model, normalizing flows can perform this task; yet, the
-inherent invertible structure may cause limitations in its performance
-\textbf{rizzuti2024multiscale?}. In this work, we instead adopt a
-Conditional Score-Based Generative Model---specifically, WSGM---within
-the SBI framework, enabling efficient posterior estimation across
-multiple scales. Notably, in our formulation \(\mathbf{y}\) represents
-RTM images, which serve as summary statistics extracted from seismic
-observational data {[}10{]}, {[}11{]}.
+physically impossible in many scientific settings (Cranmer \emph{et al.}
+2020). A common generative model, normalizing flows can perform this
+task; yet, the inherent invertible structure may cause limitations in
+its performance (Rizzuti \& Vasconcelos 2024). In this work, we instead
+adopt a Conditional Score-Based Generative Model---specifically,
+WSGM---within the SBI framework, enabling efficient posterior estimation
+across multiple scales. Notably, in our formulation \(\mathbf{y}\)
+represents RTM images, which serve as summary statistics extracted from
+seismic observational data (Deans 2002; Yin \emph{et al.} 2024).
 
 \subsection{Score-based generative models (SGMs) and
 WSGM}\label{score-based-generative-models-sgms-and-wsgm}
@@ -306,17 +179,17 @@ WSGM}\label{score-based-generative-models-sgms-and-wsgm}
 SGMs learn the gradient of the log-density (score function)
 \(\nabla_{\mathbf{x}} \log p(\mathbf{x})\) using a neural network
 \(s_{\boldsymbol{\theta}}(\mathbf{x})\), typically trained via a
-denoising score-matching objective {[}8{]}. Sampling proceeds via
-Langevin dynamics {[}12{]}:
+denoising score-matching objective (Song \emph{et al.} 2020). Sampling
+proceeds via Langevin dynamics (Hyvärinen 2005):
 \(\mathbf{x}_{t+1} = \mathbf{x}_t + \eta s_{\boldsymbol{\theta}}(\mathbf{x}_t) + \sqrt{2 \eta} \mathbf{n}_t\),
 where \(\mathbf{n}_t \sim \mathcal{N}(\mathbf{0}, \mathbf{I})\) and
 \(\eta\) is the step size. While SGMs have shown impressive results in
-image synthesis tasks {[}13{]}, their application in scientific domains
-such as geophysics poses additional challenges. In these settings, score
-functions can be highly ill-conditioned due to long-range spatial
-correlations in the data, which result in poorly conditioned covariance
-structures. This makes both the training and sampling procedures
-significantly slower and more memory-intensive.
+image synthesis tasks (Ho \emph{et al.} 2020), their application in
+scientific domains such as geophysics poses additional challenges. In
+these settings, score functions can be highly ill-conditioned due to
+long-range spatial correlations in the data, which result in poorly
+conditioned covariance structures. This makes both the training and
+sampling procedures significantly slower and more memory-intensive.
 
 WSGM addresses these challenges through a multi-scale decomposition.
 WSGM proposes to decompose data into scaling coefficients,
@@ -348,8 +221,8 @@ WSGM to learn the conditional score
 this involves training a network
 \(s_{\boldsymbol{\theta}}(\mathbf{x}, \mathbf{y}, \sigma(t))\) to
 approximate the score via a denoising objective conditioned on
-\(\mathbf{y}\) {[}14{]}, {[}15{]}. Given paired data
-\((\mathbf{x}, \mathbf{y})\), the objective becomes:
+\(\mathbf{y}\) (Batzolis \emph{et al.} 2021; Song \emph{et al.} 2024).
+Given paired data \((\mathbf{x}, \mathbf{y})\), the objective becomes:
 
 \[
 \widehat{\boldsymbol{\theta}}_{\text{SGM}} = \mathop{\mathrm{argmin}\,}\limits_{\boldsymbol{\theta}}\mathbb{E}_{\mathbf{y},\mathbf{x}, \mathbf{n}} \left\| s_{\boldsymbol{\theta}}(\mathbf{x} + \mathbf{n}, \mathbf{y}, \sigma(t)) - \mathbf{x} \right\|_2^2
@@ -357,11 +230,11 @@ approximate the score via a denoising objective conditioned on
 
 where
 \(\mathbf{n} \sim \mathcal{N}(\mathbf{0}, \sigma(t)^2 \mathbf{I})\) and
-\(\sigma(t)\) follows a noise schedule {[}16{]}.
+\(\sigma(t)\) follows a noise schedule (Karras \emph{et al.} 2022).
 
-For WSGM {[}9{]}, the multi-scale structure enables hierarchical
-conditioning and modeling. The posterior density can be expressed by
-hierarchical factorization as follows:
+For WSGM (Guth \emph{et al.} 2022), the multi-scale structure enables
+hierarchical conditioning and modeling. The posterior density can be
+expressed by hierarchical factorization as follows:
 
 \[
 p(\mathbf{x} \mid \mathbf{y}) = p(\mathbf{x}_J \mid \mathbf{y}_J) \prod_{j = 1}^{J} p(\overline{\mathbf{x}}_j \mid \mathbf{x}_j, \overline{\mathbf{y}}_j)
@@ -402,18 +275,18 @@ the original scale of inputs.
 
 To assess the proposed methodology, we utilize a synthetic 3D Earth
 model derived from the Compass model as a representative of geological
-formations in the North Sea region {[}17{]}. The training dataset pairs
-consisting of the 2D velocities sliced through the 3D synthetic model
-and reverse-time migration (RTM) pairs. The total number of training
-samples is 3000 and the computational grid/resolution is 256x256 with a
-spatial resolution of 6.25 m, each sample covering an area of 3.2km x
-3.2km. Seismic wave data is generated with 16 sources and 256 receivers
-with a dominant frequency of 15 Hz and a recording duration of 1.8
-seconds. To simulate real-world conditions, 10 dB SNR colored Gaussian
-noise is added to the shot records before migration. The migration
-process for RTM is preformed with a Gaussian severely smoothed 2D
-background model. Wave simulations and imaging are performed using the
-open-source package JUDI {[}18{]}.
+formations in the North Sea region (E. Jones \emph{et al.} 2012). The
+training dataset pairs consisting of the 2D velocities sliced through
+the 3D synthetic model and reverse-time migration (RTM) pairs. The total
+number of training samples is 3000 and the computational grid/resolution
+is 256x256 with a spatial resolution of 6.25 m, each sample covering an
+area of 3.2km x 3.2km. Seismic wave data is generated with 16 sources
+and 256 receivers with a dominant frequency of 15 Hz and a recording
+duration of 1.8 seconds. To simulate real-world conditions, 10 dB SNR
+colored Gaussian noise is added to the shot records before migration.
+The migration process for RTM is preformed with a Gaussian severely
+smoothed 2D background model. Wave simulations and imaging are performed
+using the open-source package JUDI (Louboutin \emph{et al.} 2023).
 
 \subsection{Inference results}\label{inference-results}
 
@@ -421,58 +294,30 @@ open-source package JUDI {[}18{]}.
 
 \begin{minipage}{0.50\linewidth}
 
-\begin{figure}[H]
+\includegraphics[width=0.9\linewidth,height=\textheight,keepaspectratio]{./figs/rtm483.png}
 
-{\centering \includegraphics[width=0.9\textwidth,height=\textheight]{./figs/rtm483.png}
-
-}
-
-\subcaption{(a) RTM}
-
-\end{figure}%
-
+\subcaption{\label{}RTM}
 \end{minipage}%
 %
 \begin{minipage}{0.50\linewidth}
 
-\begin{figure}[H]
+\includegraphics[width=0.9\linewidth,height=\textheight,keepaspectratio]{./figs/483_velo_rainbow.png}
 
-{\centering \includegraphics[width=0.9\textwidth,height=\textheight]{./figs/483_velo_rainbow.png}
-
-}
-
-\subcaption{(b) GT}
-
-\end{figure}%
-
+\subcaption{\label{}GT}
 \end{minipage}%
 \newline
 \begin{minipage}{0.50\linewidth}
 
-\begin{figure}[H]
+\includegraphics[width=0.9\linewidth,height=\textheight,keepaspectratio]{./figs/gen8W.png}
 
-{\centering \includegraphics[width=0.9\textwidth,height=\textheight]{./figs/gen8W.png}
-
-}
-
-\subcaption{(c) WSGM}
-
-\end{figure}%
-
+\subcaption{\label{}WSGM}
 \end{minipage}%
 %
 \begin{minipage}{0.50\linewidth}
 
-\begin{figure}[H]
+\includegraphics[width=0.9\linewidth,height=\textheight,keepaspectratio]{./figs/imagegen4WSGM.png}
 
-{\centering \includegraphics[width=0.9\textwidth,height=\textheight]{./figs/imagegen4WSGM.png}
-
-}
-
-\subcaption{(d) SGM}
-
-\end{figure}%
-
+\subcaption{\label{}SGM}
 \end{minipage}%
 
 \caption{\label{fig-composite}Posterior sampling results showing: (a)
@@ -485,42 +330,18 @@ fine-scale details and reduced noise.}
 
 \begin{figure}
 
-\begin{minipage}{\linewidth}
-
-\end{minipage}%
-\newline
-\begin{minipage}{\linewidth}
-
-\end{minipage}%
-\newline
-\begin{minipage}{\linewidth}
+\centering{
 
 Coarse scale ~
 ------------------------------------------------------------------------------------------------------\textgreater{}
 ~ Fine scale
 
-\end{minipage}%
-\newline
-\begin{minipage}{\linewidth}
+\includegraphics[width=0.0625\linewidth,height=\textheight,keepaspectratio]{./figs/j3_.png}
+\includegraphics[width=0.125\linewidth,height=\textheight,keepaspectratio]{./figs/j2_.png}
+\includegraphics[width=0.25\linewidth,height=\textheight,keepaspectratio]{./figs/j1_.png}
+\includegraphics[width=0.5\linewidth,height=\textheight,keepaspectratio]{./figs/WSGM_m1.png}
 
-\end{minipage}%
-\newline
-\begin{minipage}{\linewidth}
-
-\end{minipage}%
-\newline
-\begin{minipage}{\linewidth}
-
-\includegraphics[width=0.0625\textwidth,height=\textheight]{./figs/j3_.png}
-\includegraphics[width=0.125\textwidth,height=\textheight]{./figs/j2_.png}
-\includegraphics[width=0.25\textwidth,height=\textheight]{./figs/j1_.png}
-\includegraphics[width=0.5\textwidth,height=\textheight]{./figs/WSGM_m1.png}
-
-\end{minipage}%
-\newline
-\begin{minipage}{\linewidth}
-
-\end{minipage}%
+}
 
 \caption{\label{fig-multiscale}Multi-scale visualization showing the
 progression from coarse to fine resolution in wavelet space. The
@@ -534,7 +355,7 @@ geological structures.}
 
 \centering{
 
-\includegraphics[width=1\textwidth,height=\textheight]{./figs/fig3_f.png}
+\includegraphics[width=1\linewidth,height=\textheight,keepaspectratio]{./figs/fig3_f.png}
 
 }
 
@@ -551,7 +372,7 @@ regions.}
 
 \centering{
 
-\includegraphics[width=1\textwidth,height=\textheight]{./figs/fig4_s.png}
+\includegraphics[width=1\linewidth,height=\textheight,keepaspectratio]{./figs/fig4_s.png}
 
 }
 
@@ -611,7 +432,7 @@ inversion by:
   multi-scale wavelet decomposition
 \item
   Enabling efficient posterior sampling for high-dimensional velocity
-  models
+  models\\
 \item
   Providing reliable uncertainty quantification that correlates with
   prediction errors
@@ -626,130 +447,141 @@ quantification are crucial. Future work will investigate the use of
 curvelet transforms to further enhance directional feature
 representation, with potential application to 3D seismic volumes.
 
+{(a) RTM} {(b) GT} {(c) WSGM} {(d) SGM} {Figure~2: Multi-scale
+visualization showing the progression from coarse to fine resolution in
+wavelet space. The progression represents the hierarchical nature of the
+wavelet decomposition, with each level containing increasingly detailed
+geological structures.} {Figure~2: Multi-scale visualization showing the
+progression from coarse to fine resolution in wavelet space. The
+progression represents the hierarchical nature of the wavelet
+decomposition, with each level containing increasingly detailed
+geological structures.} {Figure~2: Multi-scale visualization showing the
+progression from coarse to fine resolution in wavelet space. The
+progression represents the hierarchical nature of the wavelet
+decomposition, with each level containing increasingly detailed
+geological structures.} {Figure~2: Multi-scale visualization showing the
+progression from coarse to fine resolution in wavelet space. The
+progression represents the hierarchical nature of the wavelet
+decomposition, with each level containing increasingly detailed
+geological structures.} {Figure~3: Performance analysis and uncertainty
+quantification: (a) RTM condition, (b) ground-truth velocity model (GT)
+velocity, conditional mean posterior samples from (c) WSGM and (d) SGM,
+the standard deviation of (e) WSGM and (f) SGM, and RMSE for (g) WSGM
+and (h) SGM. Note the correlation between higher uncertainty and error
+regions.} {Figure~4: Comparison of GT, WSGM, and SGM. Posterior samples
+for WSGM and SGM were generated starting from the same initial noise.}
+
 \phantomsection\label{refs}
-\begin{CSLReferences}{0}{0}
-\bibitem[\citeproctext]{ref-virieux2009overview}
-\CSLLeftMargin{{[}1{]} }%
-\CSLRightInline{J. Virieux and S. Operto, {``An overview of
-full-waveform inversion in exploration geophysics,''} \emph{Geophysics},
-vol. 74, no. 6, pp. WCC1--WCC26, 2009.}
-
-\bibitem[\citeproctext]{ref-Tarantola2005InverseProblemTheory}
-\CSLLeftMargin{{[}2{]} }%
-\CSLRightInline{A. Tarantola, \emph{Inverse problem theory: Methods for
-data fitting and model parameter estimation}. SIAM: Society for
-Industrial; Applied Mathematics, 2005.}
-
-\bibitem[\citeproctext]{ref-siahkoohi2022deep}
-\CSLLeftMargin{{[}3{]} }%
-\CSLRightInline{A. Siahkoohi, G. Rizzuti, and F. J. Herrmann, {``Deep
-bayesian inference for seismic imaging with tasks,''} \emph{Geophysics},
-vol. 87, no. 5, pp. S281--S302, 2022, doi:
-\href{https://doi.org/10.1190/geo2021-0666.1}{10.1190/geo2021-0666.1}.}
-
-\bibitem[\citeproctext]{ref-fichtner2013multiscale}
-\CSLLeftMargin{{[}4{]} }%
-\CSLRightInline{A. Fichtner \emph{et al.}, {``Multiscale full waveform
-inversion,''} \emph{Geophysical Journal International}, vol. 194, no. 1,
-pp. 534--556, 2013.}
-
-\bibitem[\citeproctext]{ref-XIAO2025112160}
-\CSLLeftMargin{{[}5{]} }%
-\CSLRightInline{Z. Xiao, J. Rao, S. Eisenträger, K.-V. Yuen, and S. A.
-Hadigheh, {``Generative adversarial network-based ultrasonic full
-waveform inversion for high-density polyethylene structures,''}
-\emph{Mechanical Systems and Signal Processing}, vol. 224, p. 112160,
-2025, doi: \url{https://doi.org/10.1016/j.ymssp.2024.112160}.}
+\begin{CSLReferences}{1}{0}
+\bibitem[\citeproctext]{ref-batzolis2021conditional}
+Batzolis, G., Stanczuk, J., Schönlieb, C.-B. \& Etmann, C., 2021.
+Conditional image generation with score-based diffusion models.
+\emph{arXiv preprint arXiv:2111.09217}.
 
 \bibitem[\citeproctext]{ref-cranmer2020frontier}
-\CSLLeftMargin{{[}6{]} }%
-\CSLRightInline{K. Cranmer, J. Brehmer, and G. Louppe, {``The frontier
-of simulation-based inference,''} \emph{Proceedings of the National
-Academy of Sciences}, vol. 117, no. 48, pp. 30055--30062, 2020.}
-
-\bibitem[\citeproctext]{ref-normalizing_flow}
-\CSLLeftMargin{{[}7{]} }%
-\CSLRightInline{L. Dinh, J. Sohl-Dickstein, and S. Bengio, {``Density
-estimation using real NVP,''} \emph{International Conference on Learning
-Representations}, 2017, Available:
-\url{https://openreview.net/forum?id=HkpbnH9lx.}}
-
-\bibitem[\citeproctext]{ref-song2020score}
-\CSLLeftMargin{{[}8{]} }%
-\CSLRightInline{Y. Song, J. Sohl-Dickstein, D. P. Kingma, A. Kumar, S.
-Ermon, and B. Poole, {``Score-based generative modeling through
-stochastic differential equations,''} \emph{arXiv preprint
-arXiv:2011.13456}, 2020.}
-
-\bibitem[\citeproctext]{ref-guth2022waveletscorebasedgenerativemodeling}
-\CSLLeftMargin{{[}9{]} }%
-\CSLRightInline{F. Guth, S. Coste, V. De Bortoli, and S. Mallat,
-{``Wavelet score-based generative modeling,''} \emph{Advances in neural
-information processing systems}, vol. 35, pp. 478--491, 2022.}
+Cranmer, K., Brehmer, J. \& Louppe, G., 2020. The frontier of
+simulation-based inference. \emph{Proceedings of the National Academy of
+Sciences}, \textbf{117}, 30055--30062, National Acad Sciences.
 
 \bibitem[\citeproctext]{ref-deans2002maximally}
-\CSLLeftMargin{{[}10{]} }%
-\CSLRightInline{M. C. Deans, {``Maximally informative statistics for
-localization and mapping,''} in \emph{Proceedings 2002 IEEE
-international conference on robotics and automation (cat. No.
-02CH37292)}, IEEE, 2002, pp. 1824--1829.}
+Deans, M.C., 2002. Maximally informative statistics for localization and
+mapping. \emph{Proceedings 2002 IEEE international conference on
+robotics and automation (cat. No. 02CH37292)}, Vol. 2, pp. 1824--1829,
+IEEE.
 
-\bibitem[\citeproctext]{ref-yin2024wise}
-\CSLLeftMargin{{[}11{]} }%
-\CSLRightInline{Z. Yin, R. Orozco, M. Louboutin, and F. J. Herrmann,
-{``WISE: Full-waveform variational inference via subsurface
-extensions,''} \emph{Geophysics}, vol. 89, no. 4, pp. A23--A28, 2024.}
-
-\bibitem[\citeproctext]{ref-Hyvarinen2005}
-\CSLLeftMargin{{[}12{]} }%
-\CSLRightInline{A. Hyvärinen, {``Estimation of non-normalized
-statistical models by score matching,''} \emph{Journal of Machine
-Learning Research}, vol. 6, pp. 695--709, 2005.}
-
-\bibitem[\citeproctext]{ref-ho2020}
-\CSLLeftMargin{{[}13{]} }%
-\CSLRightInline{J. Ho, A. Jain, and P. Abbeel, {``Denoising diffusion
-probabilistic models,''} \emph{Advances in neural information processing
-systems}, vol. 33, pp. 6840--6851, 2020.}
-
-\bibitem[\citeproctext]{ref-batzolis2021conditional}
-\CSLLeftMargin{{[}14{]} }%
-\CSLRightInline{G. Batzolis, J. Stanczuk, C.-B. Schönlieb, and C.
-Etmann, {``Conditional image generation with score-based diffusion
-models,''} \emph{arXiv preprint arXiv:2111.09217}, 2021.}
-
-\bibitem[\citeproctext]{ref-song2024fwi}
-\CSLLeftMargin{{[}15{]} }%
-\CSLRightInline{Y. Song, O. Lopez, X. Yang, and M. Ravasi,
-{``Score-based generative modeling for full waveform inversion with an
-application to nonlinear ultrasound imaging,''} \emph{arXiv preprint
-arXiv:2411.06651}, 2024.}
-
-\bibitem[\citeproctext]{ref-karras2022elucidating}
-\CSLLeftMargin{{[}16{]} }%
-\CSLRightInline{T. Karras, M. Aittala, T. Aila, and S. Laine,
-{``Elucidating the design space of diffusion-based generative models,''}
-\emph{Advances in neural information processing systems}, vol. 35, pp.
-26565--26577, 2022.}
+\bibitem[\citeproctext]{ref-normalizing_flow}
+Dinh, L., Sohl-Dickstein, J. \& Bengio, S., 2017. Density estimation
+using real NVP. \emph{International Conference on Learning
+Representations}. Retrieved from
+\url{https://openreview.net/forum?id=HkpbnH9lx.}
 
 \bibitem[\citeproctext]{ref-BG}
-\CSLLeftMargin{{[}17{]} }%
-\CSLRightInline{C. E. Jones, J. A. Edgar, J. I. Selvage, and H. Crook,
-{``Building complex synthetic models to evaluate acquisition geometries
-and velocity inversion technologies,''} \emph{In 74th EAGE Conference
-and Exhibition Incorporating EUROPEC 2012}, pp. cp--293, 2012, doi:
-\url{https://doi.org/10.3997/2214-4609.20148575}.}
+E. Jones, C., A. Edgar, J., I. Selvage, J. \& Crook, H., 2012. Building
+complex synthetic models to evaluate acquisition geometries and velocity
+inversion technologies. \emph{In 74th EAGE Conference and Exhibition
+Incorporating EUROPEC 2012}, cp--293, European Association of
+Geoscientists \& Engineers.
+doi:\url{https://doi.org/10.3997/2214-4609.20148575}
+
+\bibitem[\citeproctext]{ref-fichtner2013multiscale}
+Fichtner, A., Trampert, J., Cupillard, P., Saygin, E., Taymaz, T.,
+Capdeville, Y. \& Villaseñor, A., 2013. Multiscale full waveform
+inversion. \emph{Geophysical Journal International}, \textbf{194},
+534--556, Wiley Online Library.
+
+\bibitem[\citeproctext]{ref-guth2022waveletscorebasedgenerativemodeling}
+Guth, F., Coste, S., De Bortoli, V. \& Mallat, S., 2022. Wavelet
+score-based generative modeling. \emph{Advances in neural information
+processing systems}, \textbf{35}, 478--491.
+
+\bibitem[\citeproctext]{ref-ho2020}
+Ho, J., Jain, A. \& Abbeel, P., 2020. Denoising diffusion probabilistic
+models. \emph{Advances in neural information processing systems},
+\textbf{33}, 6840--6851.
+
+\bibitem[\citeproctext]{ref-Hyvarinen2005}
+Hyvärinen, A., 2005. Estimation of non-normalized statistical models by
+score matching. \emph{Journal of Machine Learning Research}, \textbf{6},
+695--709.
+
+\bibitem[\citeproctext]{ref-karras2022elucidating}
+Karras, T., Aittala, M., Aila, T. \& Laine, S., 2022. Elucidating the
+design space of diffusion-based generative models. \emph{Advances in
+neural information processing systems}, \textbf{35}, 26565--26577.
 
 \bibitem[\citeproctext]{ref-judi}
-\CSLLeftMargin{{[}18{]} }%
-\CSLRightInline{M. Louboutin \emph{et al.}, \emph{Slimgroup/JUDI.jl:
-v3.2.3}. (Mar. 2023). Zenodo. doi:
-\href{https://doi.org/10.5281/zenodo.7785440}{10.5281/zenodo.7785440}.}
+Louboutin, M., Witte, P., Yin, Z., Modzelewski, H., Kerim, Costa, C. da
+\& Nogueira, P., 2023, March. Slimgroup/JUDI.jl: v3.2.3, Zenodo.
+doi:\href{https://doi.org/10.5281/zenodo.7785440}{10.5281/zenodo.7785440}
+
+\bibitem[\citeproctext]{ref-rizzuti2024multiscale}
+Rizzuti, G. \& Vasconcelos, I., 2024. Multiscale uncertainty
+quantification for post-stack seismic inversion with wavelet flows.
+\emph{Geophysical Journal International}, \textbf{229}, 1592--1607.
+doi:\href{https://doi.org/10.1093/gji/ggad518}{10.1093/gji/ggad518}
+
+\bibitem[\citeproctext]{ref-siahkoohi2022deep}
+Siahkoohi, A., Rizzuti, G. \& Herrmann, F.J., 2022. Deep bayesian
+inference for seismic imaging with tasks. \emph{Geophysics},
+\textbf{87}, S281--S302.
+doi:\href{https://doi.org/10.1190/geo2021-0666.1}{10.1190/geo2021-0666.1}
+
+\bibitem[\citeproctext]{ref-song2024fwi}
+Song, Y., Lopez, O., Yang, X. \& Ravasi, M., 2024. Score-based
+generative modeling for full waveform inversion with an application to
+nonlinear ultrasound imaging. \emph{arXiv preprint arXiv:2411.06651}.
+
+\bibitem[\citeproctext]{ref-song2020score}
+Song, Y., Sohl-Dickstein, J., Kingma, D.P., Kumar, A., Ermon, S. \&
+Poole, B., 2020. Score-based generative modeling through stochastic
+differential equations. \emph{arXiv preprint arXiv:2011.13456}.
+
+\bibitem[\citeproctext]{ref-Tarantola2005InverseProblemTheory}
+Tarantola, A., 2005. \emph{Inverse problem theory: Methods for data
+fitting and model parameter estimation}, SIAM: Society for Industrial;
+Applied Mathematics.
+
+\bibitem[\citeproctext]{ref-virieux2009overview}
+Virieux, J. \& Operto, S., 2009. An overview of full-waveform inversion
+in exploration geophysics. \emph{Geophysics}, \textbf{74}, WCC1--WCC26,
+Society of Exploration Geophysicists.
+
+\bibitem[\citeproctext]{ref-XIAO2025112160}
+Xiao, Z., Rao, J., Eisenträger, S., Yuen, K.-V. \& Hadigheh, S.A., 2025.
+Generative adversarial network-based ultrasonic full waveform inversion
+for high-density polyethylene structures. \emph{Mechanical Systems and
+Signal Processing}, \textbf{224}, 112160.
+doi:\url{https://doi.org/10.1016/j.ymssp.2024.112160}
+
+\bibitem[\citeproctext]{ref-yin2024wise}
+Yin, Z., Orozco, R., Louboutin, M. \& Herrmann, F.J., 2024. WISE:
+Full-waveform variational inference via subsurface extensions.
+\emph{Geophysics}, \textbf{89}, A23--A28, Society of Exploration
+Geophysicists.
 
 \end{CSLReferences}
 
-
-
-
+\bibliographystyle{IMAGE2025}  % style file is seg.bst
+\bibliography{abstract.bib}
 
 \end{document}
